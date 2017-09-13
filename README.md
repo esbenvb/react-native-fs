@@ -472,10 +472,10 @@ type DownloadFileOptions = {
   fromUrl: string;          // URL to download file from
   toFile: string;           // Local filesystem path to save the file to
   headers?: Headers;        // An object of headers to be passed to the server
-  background?: boolean;
-  progressDivider?: number;
-  begin?: (res: DownloadBeginCallbackResult) => void;
-  progress?: (res: DownloadProgressCallbackResult) => void;
+  background?: boolean;     // iOS Only: Continue download when app is backgrounded (requires "Background fetch" enabled)
+  progressDivider?: number;  // The number of progress callbacks to invoke
+  begin?: (res: DownloadBeginCallbackResult) => void;  // Invoked when download begins
+  progress?: (res: DownloadProgressCallbackResult) => void;  // Invoked for each progress callback
   connectionTimeout?: number // only supported on Android yet
   readTimeout?: number       // only supported on Android yet
 };
